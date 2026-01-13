@@ -3,6 +3,7 @@ from flask import render_template, session, url_for, redirect
 from functools import wraps
 from dotenv import load_dotenv
 from blueprint.auth import auth
+from blueprint.client import client
 import os
 
 load_dotenv()
@@ -11,6 +12,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
 app.register_blueprint(auth)
+app.register_blueprint(client)
 
 def get_user_session(function):
     @wraps(function) # Essencial para o Flask não se confundir

@@ -1,6 +1,7 @@
 from . import auth
-from flask import render_template, request
+from flask import render_template, request, url_for, redirect
 from data import verify_user
+from flask_login import UserMixin
 
 
 
@@ -14,6 +15,6 @@ def log():
     cpf = request.form.get('cpf')
     password = request.form.get('password')
     if verify_user(cpf, password):
-        return "Usuário logado com sucesso"
+        return redirect(url_for('client.home_aluno'))
     else:
         return "Erro ao logar usuário", 404

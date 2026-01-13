@@ -57,3 +57,11 @@ def add_user(name, cpf:str, password:str, inst,tipo:str = 'alu'):
                 
     except:
         return False
+
+def show_inst() -> dict:
+    with get_db_connection() as connection:
+        with connection.cursor() as cun:
+            query = 'SELECT id, nome FROM tb_instituicao'
+            cun.execute(query)
+            # Cria o dicionário direto: {id: nome}
+            return {row[0]: row[1] for row in cun.fetchall()}
