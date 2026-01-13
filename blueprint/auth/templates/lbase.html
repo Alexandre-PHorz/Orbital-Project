@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbital - {% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="mcontainer">
+        <div class="log-div">
+            <h1>Login</h1>
+            <form method="POST" action="/auth/log">
+                <div class="user-area">
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" name="username" required>
+                </div>
+
+                <div class="pass-area">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+                <input type="checkbox" name="" id="checkbox" onclick="var pwd = document.getElementById('password'); if(this.checked){pwd.type='text';}else{pwd.type='password';}">
+                <label for="checkbox">Mostrar senha</label>
+                </div>
+
+
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
